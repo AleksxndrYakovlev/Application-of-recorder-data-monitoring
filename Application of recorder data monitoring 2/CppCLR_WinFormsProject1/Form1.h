@@ -9,6 +9,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
@@ -57,9 +58,14 @@ namespace CppCLRWinFormsProject {
 			this->ClientSize = System::Drawing::Size(967, 543);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e)
+	{
+	}
 	};
+
 }

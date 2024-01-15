@@ -1,4 +1,4 @@
 ﻿  CppCLR_WinFormsProject.cpp
   AssemblyInfo.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-CppCLR_WinFormsProject.obj : warning LNK4248: неразрешенная лексема TypeRef (01000023) для "_modbus"; образ нельзя запустить
+ModbusConnection.obj : warning LNK4248: неразрешенная лексема TypeRef (01000016) для "_modbus"; образ нельзя запустить
   CppCLR_WinFormsProject1.vcxproj -> C:\Users\Алексей\source\repos\AleksxndrYakovlev\Application-of-recorder-data-monitoring\Application of recorder data monitoring 2\x64\Debug\CppCLR_WinFormsProject1.exe
