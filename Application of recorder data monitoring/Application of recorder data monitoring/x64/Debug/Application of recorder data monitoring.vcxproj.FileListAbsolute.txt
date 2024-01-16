@@ -1,0 +1,3 @@
+C:\Users\LSA88\source\repos\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.AssemblyReference.cache
+C:\Users\LSA88\source\repos\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Applicationofrecorderdatamonitoring.MyForm.resources
+C:\Users\LSA88\source\repos\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.GenerateResource.cache
