@@ -31,7 +31,6 @@ void ModbusConnection::modbus_read(Device* dev) // —читывание по MODBUS TCP/IP
 	std::string time;
 	std::string note="";
 	std::string full_note;
-	//Device* dev=new Device();
 	for (int i = 0; i < 8000; i += 5)  // ќбработка полученных данных
 	{
 		month = data[i + 1] & mask_month;
@@ -43,36 +42,17 @@ void ModbusConnection::modbus_read(Device* dev) // —читывание по MODBUS TCP/IP
 		time = std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec) + "." + std::to_string(msec);
 		date = std::to_string(day) + "." + std::to_string(month);
 		code = data[i + 4];
-		switch (dev->device_number)
-		{
-		case 1:
-			note = dev->codes_cell.at(code);
-			break;
-		case 2:
-			note = dev->codes_aggregate.at(code);
-			break;
-		case 3:
-			note = dev->codes_control2.at(code);
-			break;
-		case 4:
-			note = dev->codes_control3_tp4.at(code);
-			break;
-		case 5:
-			note = dev->codes_control3_tp41.at(code);
-			break;
-		case 6:
-			note = dev->codes_control3_tp16.at(code);
-			break;
-		default:
-			break;
-		}
+		note = msg.getCode(dev->device_number, code);
 		full_note = time + date + note;
 		dev->notes.push_back(full_note);
-
 	}
 }
 
 ModbusConnection::~ModbusConnection()
 {
-
+	if (modbus_connect(ctx) != -1)
+	{
+		modbus_close(ctx);
+		modbus_free(ctx);
+	}
 };

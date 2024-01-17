@@ -121,12 +121,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Applicationofrecorderdatamonitoring.cpp" />
+    <ClCompile Include="CodeMsg.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="FormTP17.cpp" />
     <ClCompile Include="ModbusConnection.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CodeMsg.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="FormTP17.h">
       <FileType>CppForm</FileType>

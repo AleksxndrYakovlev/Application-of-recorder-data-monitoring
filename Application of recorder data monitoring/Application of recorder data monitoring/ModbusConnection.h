@@ -2,6 +2,7 @@
 #include <modbus.h>
 #include <list>
 #include <string>
+#include "CodeMsg.h"
 
 class ModbusConnection
 {
@@ -21,6 +22,8 @@ private:
 	uint16_t mask_hour = 0b1111111000000000;
 	uint16_t mask_minutes = 0b0000000011111111;
 	uint16_t mask_seconds = 0b1111111100000000;
+	// Для расшифровки кодов сообщений
+	CodeMsg msg;
 	~ModbusConnection();
 
 };
