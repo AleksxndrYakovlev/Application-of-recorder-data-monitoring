@@ -80,13 +80,13 @@ namespace Applicationofrecorderdatamonitoring {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+		//	this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+	//private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//}
 	private: System::Void button_close_Click(System::Object^ sender, System::EventArgs^ e);
 	};
 }

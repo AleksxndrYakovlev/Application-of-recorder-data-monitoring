@@ -81,6 +81,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -119,13 +121,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Applicationofrecorderdatamonitoring.cpp" />
+    <ClCompile Include="Device.cpp" />
     <ClCompile Include="FormTP17.cpp" />
+    <ClCompile Include="ModbusConnection.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Device.h" />
     <ClInclude Include="FormTP17.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ModbusConnection.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
