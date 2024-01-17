@@ -1,4 +1,6 @@
-﻿  ModbusConnection.cpp
+﻿  Device.cpp
+  ModbusConnection.cpp
+  Создание кода...
   Applicationofrecorderdatamonitoring.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
 ModbusConnection.obj : warning LNK4248: неразрешенная лексема TypeRef (0100001A) для "_modbus"; образ нельзя запустить
   Application of recorder data monitoring.vcxproj -> C:\Users\Алексей\source\repos\Application-of-recorder-data-monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.exe
