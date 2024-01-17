@@ -1,6 +1,6 @@
 #include "CodeMsg.h"
 
-std::string CodeMsg::getCode(int device_number,int code)
+std::string CodeMsg::getNote(int device_number,int code)
 {
 	std::string note = "";
 	switch (device_number)

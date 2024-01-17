@@ -6,7 +6,7 @@ class CodeMsg
 {
 public:
 	CodeMsg();
-	std::string getCode(int device_number,int code);
+	std::string getNote(int device_number,int code);
 
 private:
 	const std::map<int, std::string> codes_cell // Расшифровка кодов Линейная ячейка

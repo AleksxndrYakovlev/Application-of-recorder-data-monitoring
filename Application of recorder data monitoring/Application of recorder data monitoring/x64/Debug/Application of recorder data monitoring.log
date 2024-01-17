@@ -1,4 +1,5 @@
-﻿  Device.cpp
+﻿  CodeMsg.cpp
+  FileManage.cpp
   ModbusConnection.cpp
   Создание кода...
   Applicationofrecorderdatamonitoring.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка

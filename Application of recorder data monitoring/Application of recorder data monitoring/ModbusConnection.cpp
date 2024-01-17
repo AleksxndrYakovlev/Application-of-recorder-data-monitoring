@@ -42,7 +42,7 @@ void ModbusConnection::modbus_read(Device* dev) // —читывание по MODBUS TCP/IP
 		time = std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec) + "." + std::to_string(msec);
 		date = std::to_string(day) + "." + std::to_string(month);
 		code = data[i + 4];
-		note = msg.getCode(dev->device_number, code);
+		note = msg.getNote(dev->device_number, code);
 		full_note = time + date + note;
 		dev->notes.push_back(full_note);
 	}

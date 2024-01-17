@@ -123,6 +123,7 @@
     <ClCompile Include="Applicationofrecorderdatamonitoring.cpp" />
     <ClCompile Include="CodeMsg.cpp" />
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="FileManage.cpp" />
     <ClCompile Include="FormTP17.cpp" />
     <ClCompile Include="ModbusConnection.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -130,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="CodeMsg.h" />
     <ClInclude Include="Device.h" />
+    <ClInclude Include="FileManage.h" />
     <ClInclude Include="FormTP17.h">
       <FileType>CppForm</FileType>
     </ClInclude>
