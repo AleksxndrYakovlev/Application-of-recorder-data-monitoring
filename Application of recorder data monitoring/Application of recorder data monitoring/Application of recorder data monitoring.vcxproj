@@ -124,6 +124,7 @@
     <ClCompile Include="CodeMsg.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="FileManage.cpp" />
+    <ClCompile Include="FormActionSelection.cpp" />
     <ClCompile Include="FormTP17.cpp" />
     <ClCompile Include="ModbusConnection.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -132,6 +133,9 @@
     <ClInclude Include="CodeMsg.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="FileManage.h" />
+    <ClInclude Include="FormActionSelection.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="FormTP17.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -141,9 +145,43 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormActionSelection.resx">
+      <DependentUpon>FormActionSelection.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTP17.resx">
+      <DependentUpon>FormTP17.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\контроль данных с самописца фигма\кнопка тп mouse on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_2st.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_2st_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_2st_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_3st.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_3st_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_3st_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_all_data.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_all_data_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_all_data_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_back.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_back_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_back_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_close_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_collapse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_tp.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_tp_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_tp_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_VVV_click.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_VVV_mouse on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\btn_VVV_mouse_on.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\кнопка тп нажатая.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\кнопка тп.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\крестик светлый.png" />
+    <Image Include="..\..\контроль данных с самописца фигма\палочка mouse on.png" />
+    <Image Include="btn_3st_click.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

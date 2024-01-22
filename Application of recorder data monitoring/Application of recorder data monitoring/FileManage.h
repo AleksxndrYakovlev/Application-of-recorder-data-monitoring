@@ -1,15 +1,12 @@
 #pragma once
-
-using namespace System;
-using namespace System::Collections::Generic;
+#include <list>
+#include <string>
 
 class FileManage
 {
 public:
-	void writeEvents(List<System::String^>^ list);
-	List<String^>^ readEvents(System::String^ fileName);
-	
-private:
+	void writeEvents();
+	std::list<std::string> readEvents(System::String^ fileName);
 
 };
 
