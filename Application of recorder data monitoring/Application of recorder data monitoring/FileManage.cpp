@@ -1,13 +1,13 @@
 #include "FileManage.h"
 
-void FileManage::writeEvents()
+void FileManage::writeEvents(List<System::String^>^ list)
 {
-
 }
 
-std::list<std::string> FileManage::readEvents(System::String^ fileName)
+List<String^>^ FileManage::readEvents(System::String^ fileName)
 {
+	// TODO: вставьте здесь оператор return
+	List<String^>^ list = gcnew System::Collections::Generic::List<System::String^>;
 
-
-	return std::list<std::string>();
+	return list;
 }

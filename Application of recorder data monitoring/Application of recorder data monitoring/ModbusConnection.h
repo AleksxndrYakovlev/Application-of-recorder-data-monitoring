@@ -1,21 +1,18 @@
 #pragma once
 #include <modbus.h>
-#include <list>
-#include <string>
 #include "CodeMsg.h"
 
-class ModbusConnection
+ref class ModbusConnection
 {
 public:
-	ModbusConnection(Device* dev);
-	void modbus_read(Device* dev);
+	ModbusConnection(Device^ dev);
+	void modbus_read(Device^ dev);
 
 private:
 	modbus_t* ctx = NULL;
 	int address = 2000;
 	int amount = 8001;
 	int error;
-	uint16_t data[8001];
 	// Маски для обработки данных
 	uint16_t mask_month = 0b0000000000001111;
 	uint16_t mask_day = 0b0000000111110000;
@@ -23,7 +20,7 @@ private:
 	uint16_t mask_minutes = 0b0000000011111111;
 	uint16_t mask_seconds = 0b1111111100000000;
 	// Для расшифровки кодов сообщений
-	CodeMsg msg;
+	static CodeMsg^ msg;
 	~ModbusConnection();
 
 };

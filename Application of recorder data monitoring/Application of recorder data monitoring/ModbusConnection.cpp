@@ -8,7 +8,7 @@
 
 
 
-ModbusConnection::ModbusConnection(Device* dev)
+ModbusConnection::ModbusConnection(Device^ dev)
 {
 	ctx = modbus_new_tcp(dev->ip, dev->port);
 	if (ctx == NULL)
@@ -23,14 +23,16 @@ ModbusConnection::ModbusConnection(Device* dev)
 	}
 }
 
-void ModbusConnection::modbus_read(Device* dev) // —читывание по MODBUS TCP/IP
+void ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 {
+	uint16_t data[8001];
 	error = modbus_read_registers(ctx, address, amount, data); // —читывание непосредственно с контроллера 
 	int min, sec, msec, hour, day, month, code;
-	std::string date;
-	std::string time;
-	std::string note="";
-	std::string full_note;
+	String^ date;
+	String^ time;
+	String^ note="";
+	String^ full_note;
+	msg = msg->getInstance();
 	for (int i = 0; i < 8000; i += 5)  // ќбработка полученных данных
 	{
 		month = data[i + 1] & mask_month;
@@ -39,12 +41,12 @@ void ModbusConnection::modbus_read(Device* dev) // —читывание по MODBUS TCP/IP
 		min = data[i + 2] & mask_minutes;
 		sec = (data[i + 2] & mask_seconds) >> 8;
 		msec = data[i + 3];
-		time = std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec) + "." + std::to_string(msec);
-		date = std::to_string(day) + "." + std::to_string(month);
+		time = Convert::ToString(hour) + ":" + Convert::ToString(min) + ":" + Convert::ToString(sec) + "." + Convert::ToString(msec);
+		date = Convert::ToString(day) + "." + Convert::ToString(month);
 		code = data[i + 4];
-		note = msg.getNote(dev->device_number, code);
+		note = msg->getNote(dev->device_number, code);
 		full_note = time + date + note;
-		dev->notes.push_back(full_note);
+		dev->list->Add(full_note);
 	}
 }
 
@@ -52,6 +54,7 @@ ModbusConnection::~ModbusConnection()
 {
 	if (modbus_connect(ctx) != -1)
 	{
+		// ќчищение пам€ти
 		modbus_close(ctx);
 		modbus_free(ctx);
 	}
