@@ -1,4 +1,5 @@
 #include "FormActionSelection.h"
+#include "FormTP17.h"
 
 System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_close_MouseEnter(System::Object^ sender, System::EventArgs^ e)
 {
@@ -63,12 +64,17 @@ System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_as_Mo
 
 System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_get_data_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	//Функция, которая извлекает данные
 	this->Close();
+	FormTP17::btn_flag = true;
 }
 
 System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_check_data_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	//Функция, которая вызывает конкретную папку с файлами по объекту в проводнике, 
+	//Функция, которая вызывает конкретную папку с файлами по объекту в проводнике 
 	return System::Void();
+}
+
+System::Void Applicationofrecorderdatamonitoring::FormActionSelection::FormActionSelection_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
+{
+	FormTP17::form_closed_flag = true;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "Device.h"
 
 namespace Applicationofrecorderdatamonitoring {
 
@@ -166,7 +167,9 @@ namespace Applicationofrecorderdatamonitoring {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"FormActionSelection";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"FormActionSelection";
+			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &FormActionSelection::FormActionSelection_FormClosed);
 			this->panel_header->ResumeLayout(false);
 			this->ResumeLayout(false);
 
@@ -183,5 +186,6 @@ namespace Applicationofrecorderdatamonitoring {
 	private: System::Void btn_as_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 	private: System::Void btn_get_data_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void btn_check_data_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void FormActionSelection_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
 };
 }

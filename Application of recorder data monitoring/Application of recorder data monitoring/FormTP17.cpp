@@ -1,6 +1,8 @@
 #include "FormTP17.h"
 #include "MyForm.h"
 #include "FormActionSelection.h"
+#include "Device.h"
+
 
 System::Void Applicationofrecorderdatamonitoring::FormTP17::btn_close_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -198,6 +200,138 @@ System::Void Applicationofrecorderdatamonitoring::FormTP17::btn_back_Click(Syste
 
 System::Void Applicationofrecorderdatamonitoring::FormTP17::btn_obj_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	FormActionSelection^ form = gcnew FormActionSelection;
-	form->ShowDialog();
+	Button^ button = safe_cast<Button^>(sender);
+	btn_which_click = button->Text;
+	timer_wait_btn_get_data_click->Start();
+}
+
+
+System::Void Applicationofrecorderdatamonitoring::FormTP17::timer_wait_btn_get_data_click_Tick(System::Object^ sender, System::EventArgs^ e)
+{
+	//Инициализируем форму как только таймер стартовал
+	if (startTimer) {
+		startTimer = false;
+		FormActionSelection^ form = gcnew FormActionSelection;
+		form->ShowDialog();
+	}
+
+	label1->Text = "timer work";
+
+	if (btn_which_click == "ШУ ВВ_2") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(3, "10.101.17.19", 17, btn_which_click, 2);
+			label1->Text = "Считываем ШУ ВВ_2";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "ШУ Агрегат 1") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(2, "10.101.17.16", 17, btn_which_click, 2);
+			label1->Text = "Считываем ШУ Агрегат 1";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "ШУ Агрегат 2") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(2, "10.101.17.17", 17, btn_which_click, 2);
+			label1->Text = "Считываем ШУ Агрегат 2";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "ШУ Агрегат 3") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(2, "10.101.17.18", 17, btn_which_click, 2);
+			label1->Text = "Считываем ШУ Агрегат 3";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "Запасный 1") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.10", 17, btn_which_click, 2);
+			label1->Text = "Считываем Запасный 1";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "ЛЭМЗ") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.11", 17, btn_which_click, 2);
+			label1->Text = "Считываем ЛЭМЗ";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "Сосновый") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.12", 17, btn_which_click, 2);
+			label1->Text = "Считываем Сосновый";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "Стрельнинский") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.13", 17, btn_which_click, 2);
+			label1->Text = "Считываем Стрельнинский";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "Пионерстроя (тб)") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.14", 17, btn_which_click, 2);
+			label1->Text = "Считываем Пионерстроя (тб)";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+	if (btn_which_click == "Запасный 2") {
+		if (btn_flag) {
+			Device^ device = gcnew Device(1, "10.101.17.15", 17, btn_which_click, 2);
+			label1->Text = "Считываем Запасный 2";
+			//Фунция для считывания информации
+			form_closed_flag = false;
+			startTimer = true;
+			btn_flag = false;
+			timer_wait_btn_get_data_click->Stop();
+		}
+	}
+
+	if (form_closed_flag) {
+		form_closed_flag = false;
+		startTimer = true;
+		timer_wait_btn_get_data_click->Stop();
+		label1->Text = "timer stop";
+	}
 }

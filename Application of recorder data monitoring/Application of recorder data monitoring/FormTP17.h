@@ -44,8 +44,11 @@ namespace Applicationofrecorderdatamonitoring {
     private: System::Windows::Forms::Button^ button_streln;
     private: System::Windows::Forms::Button^ button_LEMZ;
 
+    //Переменная-флаг: Проверка, нажата кнопка "Извлечь данные" на FormActionSelection
+    public: static bool btn_flag = false;
 
-
+    //Переменная флаг: Проверка закрытия формы FormActionSelection
+    public: static bool form_closed_flag = false;
 
     private: System::Windows::Forms::Button^ button_sosna;
 
@@ -55,8 +58,15 @@ namespace Applicationofrecorderdatamonitoring {
     private: System::Windows::Forms::Panel^ panel_header;
     private: System::Windows::Forms::Button^ btn_all_data;
     private: System::Windows::Forms::Button^ btn_back;
+    private: System::Windows::Forms::Timer^ timer_wait_btn_get_data_click;
+    private: System::Windows::Forms::Label^ label1;
+    private: System::ComponentModel::IContainer^ components;
 
+    //Переменная: Какая кнопка была нажата для открытия FormActionSelection
+    private: String^ btn_which_click;
 
+    //Переменная-флаг: Первый цикл работы таймера
+    private: bool startTimer = true;
 
 
 
@@ -71,7 +81,7 @@ namespace Applicationofrecorderdatamonitoring {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -80,6 +90,7 @@ namespace Applicationofrecorderdatamonitoring {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+            this->components = (gcnew System::ComponentModel::Container());
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FormTP17::typeid));
             this->btn_close = (gcnew System::Windows::Forms::Button());
             this->btn_collapse = (gcnew System::Windows::Forms::Button());
@@ -96,6 +107,8 @@ namespace Applicationofrecorderdatamonitoring {
             this->panel_header = (gcnew System::Windows::Forms::Panel());
             this->btn_all_data = (gcnew System::Windows::Forms::Button());
             this->btn_back = (gcnew System::Windows::Forms::Button());
+            this->timer_wait_btn_get_data_click = (gcnew System::Windows::Forms::Timer(this->components));
+            this->label1 = (gcnew System::Windows::Forms::Label());
             this->SuspendLayout();
             // 
             // btn_close
@@ -163,7 +176,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->btn_VVV_3->Name = L"btn_VVV_3";
             this->btn_VVV_3->Size = System::Drawing::Size(1705, 90);
             this->btn_VVV_3->TabIndex = 2;
-            this->btn_VVV_3->Text = L"ШУ ВВВ_3";
+            this->btn_VVV_3->Text = L"ШУ ВВ_2";
             this->btn_VVV_3->UseVisualStyleBackColor = false;
             this->btn_VVV_3->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->btn_VVV_3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::btn_VVV_3_MouseDown);
@@ -194,6 +207,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->btn_agregat1->TabIndex = 3;
             this->btn_agregat1->Text = L"ШУ Агрегат 1";
             this->btn_agregat1->UseVisualStyleBackColor = false;
+            this->btn_agregat1->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->btn_agregat1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::btn_agregat_MouseDown);
             this->btn_agregat1->MouseEnter += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseEnter);
             this->btn_agregat1->MouseLeave += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseLeave);
@@ -222,6 +236,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->btn_agregat2->TabIndex = 4;
             this->btn_agregat2->Text = L"ШУ Агрегат 2";
             this->btn_agregat2->UseVisualStyleBackColor = false;
+            this->btn_agregat2->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->btn_agregat2->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::btn_agregat_MouseDown);
             this->btn_agregat2->MouseEnter += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseEnter);
             this->btn_agregat2->MouseLeave += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseLeave);
@@ -250,6 +265,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->btn_agregat3->TabIndex = 5;
             this->btn_agregat3->Text = L"ШУ Агрегат 3";
             this->btn_agregat3->UseVisualStyleBackColor = false;
+            this->btn_agregat3->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->btn_agregat3->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::btn_agregat_MouseDown);
             this->btn_agregat3->MouseEnter += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseEnter);
             this->btn_agregat3->MouseLeave += gcnew System::EventHandler(this, &FormTP17::btn_agregat_MouseLeave);
@@ -278,6 +294,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_zapas1->TabIndex = 6;
             this->button_zapas1->Text = L"Запасный 1";
             this->button_zapas1->UseVisualStyleBackColor = false;
+            this->button_zapas1->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_zapas1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_zapas1->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_zapas1->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -306,6 +323,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_streln->TabIndex = 7;
             this->button_streln->Text = L"Стрельнинский";
             this->button_streln->UseVisualStyleBackColor = false;
+            this->button_streln->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_streln->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_streln->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_streln->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -334,6 +352,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_LEMZ->TabIndex = 8;
             this->button_LEMZ->Text = L"ЛЭМЗ";
             this->button_LEMZ->UseVisualStyleBackColor = false;
+            this->button_LEMZ->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_LEMZ->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_LEMZ->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_LEMZ->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -362,6 +381,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_sosna->TabIndex = 9;
             this->button_sosna->Text = L"Сосновый";
             this->button_sosna->UseVisualStyleBackColor = false;
+            this->button_sosna->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_sosna->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_sosna->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_sosna->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -390,6 +410,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_pioner->TabIndex = 10;
             this->button_pioner->Text = L"Пионерстроя (тб)";
             this->button_pioner->UseVisualStyleBackColor = false;
+            this->button_pioner->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_pioner->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_pioner->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_pioner->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -418,6 +439,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->button_zapas2->TabIndex = 11;
             this->button_zapas2->Text = L"Запасный 2";
             this->button_zapas2->UseVisualStyleBackColor = false;
+            this->button_zapas2->Click += gcnew System::EventHandler(this, &FormTP17::btn_obj_Click);
             this->button_zapas2->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::button_obj_MouseDown);
             this->button_zapas2->MouseEnter += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseEnter);
             this->button_zapas2->MouseLeave += gcnew System::EventHandler(this, &FormTP17::button_obj_MouseLeave);
@@ -479,6 +501,20 @@ namespace Applicationofrecorderdatamonitoring {
             this->btn_back->MouseLeave += gcnew System::EventHandler(this, &FormTP17::btn_back_MouseLeave);
             this->btn_back->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &FormTP17::btn_back_MouseUp);
             // 
+            // timer_wait_btn_get_data_click
+            // 
+            this->timer_wait_btn_get_data_click->Tick += gcnew System::EventHandler(this, &FormTP17::timer_wait_btn_get_data_click_Tick);
+            // 
+            // label1
+            // 
+            this->label1->AutoSize = true;
+            this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16));
+            this->label1->Location = System::Drawing::Point(218, 142);
+            this->label1->Name = L"label1";
+            this->label1->Size = System::Drawing::Size(70, 26);
+            this->label1->TabIndex = 15;
+            this->label1->Text = L"label1";
+            // 
             // FormTP17
             // 
             this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -486,6 +522,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->BackColor = System::Drawing::Color::White;
             this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
             this->ClientSize = System::Drawing::Size(1920, 1080);
+            this->Controls->Add(this->label1);
             this->Controls->Add(this->btn_back);
             this->Controls->Add(this->btn_all_data);
             this->Controls->Add(this->panel_header);
@@ -506,6 +543,7 @@ namespace Applicationofrecorderdatamonitoring {
             this->Name = L"FormTP17";
             this->Text = L"FormTP17";
             this->ResumeLayout(false);
+            this->PerformLayout();
 
         }
 #pragma endregion
@@ -539,5 +577,6 @@ namespace Applicationofrecorderdatamonitoring {
     private: System::Void btn_back_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
     private: System::Void btn_back_Click(System::Object^ sender, System::EventArgs^ e);
     private: System::Void btn_obj_Click(System::Object^ sender, System::EventArgs^ e);
+    private: System::Void timer_wait_btn_get_data_click_Tick(System::Object^ sender, System::EventArgs^ e);
 };
 }
