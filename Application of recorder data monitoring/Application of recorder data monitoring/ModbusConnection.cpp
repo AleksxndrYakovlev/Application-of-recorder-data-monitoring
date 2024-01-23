@@ -37,7 +37,7 @@ bool ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 		CodeMsg^ msg = CodeMsg::getInstance();
 		if (data[start + 3] != 0)
 		{
-			for (int i = start; i < 8000; i += 4)  // ќбработка полученных данных
+			for (int i = start; i < 7987; i += 4)  // ќбработка полученных данных
 			{
 				month = data[i] & mask_month;
 				day = (data[i] & mask_day) >> 4;
@@ -52,7 +52,7 @@ bool ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 				full_note = time + date + note;
 				dev->list->Add(full_note);
 			}
-			for (int i = 1; i < start; i += 4)
+			for (int i = 1; i < start-3; i += 4)
 			{
 				month = data[i] & mask_month;
 				day = (data[i] & mask_day) >> 4;
@@ -70,7 +70,7 @@ bool ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 		}
 		else
 		{
-			for (int i = 1; i < start; i += 4)  // ќбработка полученных данных
+			for (int i = 1; i < start-3; i += 4)  // ќбработка полученных данных
 			{
 				if (data[i + 3] != 0)
 				{
@@ -95,7 +95,8 @@ bool ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 		}
 		return true;
 	}
-	else {
+	else
+	{
 		return false;
 	}
 	
