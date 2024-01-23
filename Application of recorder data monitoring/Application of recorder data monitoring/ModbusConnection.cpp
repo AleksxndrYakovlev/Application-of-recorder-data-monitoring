@@ -22,7 +22,7 @@ ModbusConnection::ModbusConnection(Device^ dev)
 	
 }
 
-void ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
+bool ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 {
 	uint16_t data[8001];
 	error = modbus_read_registers(ctx, address, amount, data); // —читывание непосредственно с контроллера 
@@ -93,6 +93,10 @@ void ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 				}
 			}
 		}
+		return true;
+	}
+	else {
+		return false;
 	}
 	
 }

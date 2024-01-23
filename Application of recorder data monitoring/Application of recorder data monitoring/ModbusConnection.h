@@ -6,7 +6,7 @@ ref class ModbusConnection
 {
 public:
 	ModbusConnection(Device^ dev);
-	void modbus_read(Device^ dev); // Чтение с контроллера по MODBUS TCP/IP
+	bool modbus_read(Device^ dev); // Чтение с контроллера по MODBUS TCP/IP
 
 private:
 	modbus_t* ctx = NULL;

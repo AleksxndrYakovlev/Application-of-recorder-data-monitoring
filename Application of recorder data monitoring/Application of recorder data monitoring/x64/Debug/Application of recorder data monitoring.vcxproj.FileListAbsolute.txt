@@ -19,3 +19,10 @@ C:\Users\LSA88\Desktop\Application of recorder data monitoring в2\Application o
 C:\Users\LSA88\Desktop\Application of recorder data monitoring в2\Application of recorder data monitoring\x64\Debug\Applicationofrecorderdatamonitoring.MyForm.resources
 C:\Users\LSA88\Desktop\Application of recorder data monitoring в2\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.GenerateResource.cache
 C:\Users\LSA88\Desktop\Application of recorder data monitoring в2\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.CopyComplete
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.AssemblyReference.cache
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Applicationofrecorderdatamonitoring.FormActionSelection.resources
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Applicationofrecorderdatamonitoring.FormTP17.resources
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Applicationofrecorderdatamonitoring.MyForm.resources
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.GenerateResource.cache
+C:\Users\LSA88\Desktop\Application-of-recorder-data-monitoring-main 2\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.CopyComplete
+C:\Users\LSA88\Desktop\Application of recorder data monitoring\Application of recorder data monitoring\x64\Debug\Application of recorder data monitoring.vcxproj.CopyComplete
