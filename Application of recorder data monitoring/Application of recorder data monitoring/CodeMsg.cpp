@@ -90,7 +90,7 @@ CodeMsg::CodeMsg()
 	codes_cell->Add(111, "DgnPLC:Нет связи с одним из расширителей"); codes_cell->Add(112, "DgnPLC:Ошибка ввода-вывода в каркасе одного из расширителей"); 
 	codes_cell->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet"); codes_cell->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); codes_cell->Add(115, "DgnPLC:Резерв 15");
 
-	cellList->Add(codes_cell->Values->ToString());
+	cellList->AddRange(codes_cell->Values);
 
 
 	// Расшифровка Агрегат
@@ -113,7 +113,7 @@ CodeMsg::CodeMsg()
 	codes_aggregate->Add(112, "DgnPLC:Ошибка ввода-вывода в каркасе одного из расширителей"); codes_aggregate->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet");
 	codes_aggregate->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); codes_aggregate->Add(115, "DgnPLC:Резерв 15");
 	
-	aggregateList->Add(codes_aggregate->Values->ToString());
+	aggregateList->AddRange(codes_aggregate->Values);
 
 	// Расшифровка Шкаф управления ВВ2
 	codes_control2 = gcnew Dictionary<int, String^>();
@@ -135,7 +135,7 @@ CodeMsg::CodeMsg()
 	codes_control2->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet"); codes_control2->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); 
 	codes_control2->Add(115, "DgnPLC:Резерв 15");
 	
-	controlList2->Add(codes_control2->Values->ToString());
+	controlList2->AddRange(codes_control2->Values);
 	
 	// Расшифровка Шкаф управления ВВ3_ТП4
 	codes_control3_tp4 = gcnew Dictionary<int,String^>();
@@ -163,7 +163,7 @@ CodeMsg::CodeMsg()
 	codes_control3_tp4->Add(112, "DgnPLC:Ошибка ввода-вывода в каркасе одного из расширителей"); codes_control3_tp4->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet");
 	codes_control3_tp4->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); codes_control3_tp4->Add(115, "DgnPLC:Резерв 15");
 	
-	controlList3_tp4->Add(codes_control3_tp4->Values->ToString());
+	controlList3_tp4->AddRange(codes_control3_tp4->Values);
 
 	// Расшифровка Шкаф управления ВВ3_ТП41
 	codes_control3_tp41 = gcnew Dictionary<int,String^>();
@@ -190,7 +190,7 @@ CodeMsg::CodeMsg()
 	codes_control3_tp41->Add(112, "DgnPLC:Ошибка ввода-вывода в каркасе одного из расширителей"); codes_control3_tp41->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet");
 	codes_control3_tp41->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); codes_control3_tp41->Add(115, "DgnPLC:Резерв 15"); 
 
-	controlList3_tp41->Add(codes_control3_tp41->Values->ToString());
+	controlList3_tp41->AddRange(codes_control3_tp41->Values);
 
 	// Расшифровка Шкаф управления ВВ3_ТП16
 	codes_control3_tp16 = gcnew Dictionary<int, String^>();
@@ -220,5 +220,5 @@ CodeMsg::CodeMsg()
 	codes_control3_tp16->Add(113, "DgnPLC:Ошибка обмена Modbus TCP/IP/Ethernet"); codes_control3_tp16->Add(114, "DgnPLC:Ошибка сетевой диагностики модуля"); codes_control3_tp16->Add(115, "DgnPLC:Резерв 15");
 
 
-	controlList3_tp16->Add(codes_control3_tp16->Values->ToString());
+	controlList3_tp16->AddRange(codes_control3_tp16->Values);
 }

@@ -6,12 +6,12 @@ ref class ModbusConnection
 {
 public:
 	ModbusConnection(Device^ dev);
-	void modbus_read(Device^ dev);
+	void modbus_read(Device^ dev); // Чтение с контроллера по MODBUS TCP/IP
 
 private:
 	modbus_t* ctx = NULL;
-	int address = 2000;
-	int amount = 8001;
+	int address = 2000; // начальный адрес
+	int amount = 8001; // кол-во элементов
 	int error;
 	// Маски для обработки данных
 	uint16_t mask_month = 0b0000000000001111;

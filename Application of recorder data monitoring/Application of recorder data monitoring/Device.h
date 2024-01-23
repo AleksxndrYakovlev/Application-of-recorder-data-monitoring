@@ -16,18 +16,6 @@ public:
 	int district;
 
 	List<String^>^ list; // Список всех сообщений  
-	List<String^>^ filteredList; // Список отфильтрованных сообщений
-
-	//Фильтрация по сообщениям
-	void filterList(List<String^>^ param);
-
-
+	
 };
 
-private value class EntityPredicate
-{
-	String^ note;
-public:
-	EntityPredicate(String^ str);
-	bool hasNote(String^ str);
-};

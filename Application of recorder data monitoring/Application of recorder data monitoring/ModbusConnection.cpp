@@ -72,18 +72,25 @@ void ModbusConnection::modbus_read(Device^ dev) // —читывание по MODBUS TCP/IP
 		{
 			for (int i = 1; i < start; i += 4)  // ќбработка полученных данных
 			{
-				month = data[i] & mask_month;
-				day = (data[i] & mask_day) >> 4;
-				hour = (data[i] & mask_hour) >> 9;
-				min = data[i + 1] & mask_minutes;
-				sec = (data[i + 1] & mask_seconds) >> 8;
-				msec = data[i + 2];
-				time = Convert::ToString(hour) + ":" + Convert::ToString(min) + ":" + Convert::ToString(sec) + "." + Convert::ToString(msec);
-				date = Convert::ToString(day) + "." + Convert::ToString(month);
-				code = data[i + 3];
-				note = msg->getNote(dev->device_number, code);
-				full_note = time + date + note;
-				dev->list->Add(full_note);
+				if (data[i + 3] != 0)
+				{
+					month = data[i] & mask_month;
+					day = (data[i] & mask_day) >> 4;
+					hour = (data[i] & mask_hour) >> 9;
+					min = data[i + 1] & mask_minutes;
+					sec = (data[i + 1] & mask_seconds) >> 8;
+					msec = data[i + 2];
+					time = Convert::ToString(hour) + ":" + Convert::ToString(min) + ":" + Convert::ToString(sec) + "." + Convert::ToString(msec);
+					date = Convert::ToString(day) + "." + Convert::ToString(month);
+					code = data[i + 3];
+					note = msg->getNote(dev->device_number, code);
+					full_note = time + date + note;
+					dev->list->Add(full_note);
+				}
+				else
+				{
+					break;
+				}
 			}
 		}
 	}

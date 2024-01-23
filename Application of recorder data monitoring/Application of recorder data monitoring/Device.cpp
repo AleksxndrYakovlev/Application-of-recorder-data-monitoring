@@ -23,23 +23,4 @@ Device::Device(int dev_num, const char* ip,  int substation_number, String^ name
 }
 
 
-// Фильтрация сообщений 
-void Device::filterList(List<String^>^ param)
-{
-	for each (String^ str in param)
-	{
-		EntityPredicate ent(str);
-		filteredList->AddRange(list->FindAll(gcnew Predicate<String^>(ent,&EntityPredicate::hasNote)));
-	}
-}
 
-
-EntityPredicate::EntityPredicate(String^ str)
-{
-	note = str;
-}
-
-bool EntityPredicate::hasNote(String^ str)
-{
-	return str->Contains(note);
-}

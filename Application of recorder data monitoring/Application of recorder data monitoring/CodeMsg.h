@@ -10,8 +10,8 @@ ref class CodeMsg
 {
 public:
 	
-	String^ getNote(int device_number,int code);
-	List<String^>^ getList(int device_number);
+	String^ getNote(int device_number,int code); // Получить запись по коду
+	List<String^>^ getList(int device_number); // Получить список возможных сообщений
 	static CodeMsg^ getInstance();
 	
 private:
