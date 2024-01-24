@@ -71,7 +71,15 @@ System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_get_d
 System::Void Applicationofrecorderdatamonitoring::FormActionSelection::btn_check_data_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	//Функция, которая вызывает конкретную папку с файлами по объекту в проводнике 
-	return System::Void();
+	String^ fileName = "";
+	String^ dir = Application::StartupPath;
+	dir=dir->Replace(L"\\x64\\Debug", L"\\Application of recorder data monitoring\\archive");
+	openFileDialog1->InitialDirectory = dir;
+	if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
+	{
+		fileName = openFileDialog1->FileName;
+	}
+
 }
 
 System::Void Applicationofrecorderdatamonitoring::FormActionSelection::FormActionSelection_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)

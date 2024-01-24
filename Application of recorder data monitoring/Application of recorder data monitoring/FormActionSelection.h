@@ -39,6 +39,7 @@ namespace Applicationofrecorderdatamonitoring {
 	private: System::Windows::Forms::Panel^ panel_header;
 	private: System::Windows::Forms::Button^ btn_get_data;
 	private: System::Windows::Forms::Button^ btn_check_data;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 
 	protected:
@@ -61,6 +62,7 @@ namespace Applicationofrecorderdatamonitoring {
 			this->panel_header = (gcnew System::Windows::Forms::Panel());
 			this->btn_get_data = (gcnew System::Windows::Forms::Button());
 			this->btn_check_data = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->panel_header->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -154,6 +156,10 @@ namespace Applicationofrecorderdatamonitoring {
 			this->btn_check_data->MouseEnter += gcnew System::EventHandler(this, &FormActionSelection::btn_as_MouseEnter);
 			this->btn_check_data->MouseLeave += gcnew System::EventHandler(this, &FormActionSelection::btn_as_MouseLeave);
 			this->btn_check_data->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &FormActionSelection::btn_as_MouseUp);
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->Filter = L"\"Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*\"";
 			// 
 			// FormActionSelection
 			// 
